@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .bg {
+      background-color: #CCC;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 容器 -->
+  <div id="test"></div>
+
+  <!-- 引入 react 核心库 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/react/17.0.1/umd/react.profiling.min.js"></script>
+  <!-- 引入 react-dom,用于支持 react 操作 Dom -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/17.0.1/umd/react-dom.profiling.min.js"></script>
+  <!-- 引入 babel，用于将 jsx 转为 js -->
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+  <script type="text/babel">
+    /*
+      PS：
+        1. 函数名需要大写，函数必须要有返回值
+        2. 渲染时，函数名需用尖括号包住
+   */
+    // 1.创建函数式组件(适用于简单组件)
+    function Demo() {
+      console.log(this); //此处 this 值为 undefined,因为 babel 编译后开启了严格模 式
+      return <h2>函数式组件</h2>
+    }
+
+    // 2.渲染组件到界面
+    ReactDOM.render(<Demo />, document.querySelector('#test'))
+
+    /*
+    PS:执行了 ReactDOM.render()。。。之后,what happened?
+      1. React 解析组件标签，找到了 Demo 组件
+      2. 发现 Demo 组件是函数定义的，随后调用该函数，将返回的虚拟 DOM 转为真实 DOM ，随后呈现在页面上。 
+    */
+  </script>
+
+
+
+</body>
+
+</html>
