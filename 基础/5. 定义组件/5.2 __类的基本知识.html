@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+
+    /*
+      1. 如果 A 类继承 B 类且 A 类中需定义构造器，那么 A 类构造器中的 super 是必须要调用的。
+      2. 类中所定义的方法放在了类的原型对象上，供实例去使用
+    */
+    // 创建一个 Person 类
+    class Person {
+      // 构造器
+      constructor(name, age) { // 构造器中的 this,指向 Person 实例
+        this.name = name
+        this.age = age
+      }
+      // 一般方法(类中所定义的方法放在了类的原型对象上，供实例去使用)
+      speak() {
+        console.log(`我叫${this.name},今年${this.age}`);
+      }
+    }
+    // 创建一个 Student 类继承 Person 类
+    class Student extends Person {
+      constructor(name, age, desc = 'beautiful') {
+        super(name, age)
+        this.desc = desc
+      }
+      // 重写父类继承过来的方法
+      speak() {
+        console.log(`我叫${this.name},今年${this.age},so ${this.desc}!`);
+      }
+    }
+
+    const per = new Person('erXun', 18)
+    console.log(per);
+    per.speak()
+
+    const stu = new Student('jjn', 18)
+    console.log(stu);
+    stu.speak()
+
+    const stu1 = new Student('jjn', 18, 'temperament')
+    console.log(stu1);
+    stu1.speak()
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
