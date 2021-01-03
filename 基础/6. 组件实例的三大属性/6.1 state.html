@@ -24,12 +24,13 @@
     class Weather extends React.Component {
       // 构造器调用次数---- 1次
       constructor(props) {
+        // 构造器是否接受 props以及传递给super，取决于是否希望在构造器中通过 this 访问props
         super(props)
         // *初始化 state*，state 里的数据不可以直接更改
         this.state = {
           isHot: true
         }
-        // *改变 this 指向*
+        // *改变 this 指向(为事件处理函数绑定实例)*
         this.changeWeather = this.changeWeather.bind(this) // 返回一个改变this指向的函数
       }
 
