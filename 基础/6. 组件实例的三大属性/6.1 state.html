@@ -51,7 +51,7 @@
             此处的 this.changeWeather 是作为 onClick 的回调，并没有通过实例进行调用该方法。
             类中的方法默认开启了严格模式，所以 changeWeather 中的 this 值为 undefined
         */
-        // console.log(this); // undefined ???
+        console.log(this, '???'); // undefined ???
 
         const isHot = this.state.isHot
         // 通过 this.setState() 改变 state(合并属性)
@@ -68,7 +68,7 @@
 
     ReactDOM.render(<Weather />, document.querySelector('#test'))
 
-
+ 
 
   </script>
 
