@@ -22,7 +22,8 @@
     /*
       高阶函数定义(满足以下一种情况就行)：
         1. 若 A 函数，接受的参数是一个函数，那么 A 就可以称之为高阶函数
-        2. 若 A 函数调用后的返回值依旧是一个函数，那么 A 可以称之为高阶函数
+        2. 若 A 函数调用后的返回值依旧是一个函数，那么 A 就可以称之为高阶函数
+        
       函数柯里化：
         通过函数调用继续返回函数的形式，实现多次接受参数最后进行统一处理的函数编码形式。
     */
@@ -46,6 +47,7 @@
         }
       }
 
+
       render() {
         return (
           <form onSubmit={this.handleSubmit}>
@@ -55,6 +57,21 @@
           </form>
         )
       }
+      // 非柯里化写法(****)
+      // saveNewData = (dataType, event) => {
+      //   this.setState({
+      //     [dataType]: event.target.value
+      //   })
+      // }
+      // render() {
+      //   return (
+      //     <form onSubmit={this.handleSubmit}>
+      //       用户名: <input type="text" name="username" onChange={(event) => { this.saveNewData('username', event) }} />
+      //       密码: <input type="password" name="password" onChange={(event) => { this.saveNewData('password', event) }} />
+      //       <button>登录</button>
+      //     </form>
+      //   )
+      // }
     }
 
     ReactDOM.render(<Login />, document.getElementById('test'))

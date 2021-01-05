@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 容器 -->
+  <div id="test"></div>
+
+  <!-- 引入 react 核心库 -->
+  <script src="../../../React 学习/react.js"></script>
+
+  <!-- 引入 react-dom,用于支持 react 操作 Dom -->
+  <script src="../../../React 学习/reactDom.js"></script>
+
+  <!-- 引入 babel，用于将 jsx 转为 js -->
+  <script src="../../../React 学习/babel.js"></script>
+
+
+
+  <script type="text/babel">
+
+    class Life extends React.Component {
+      constructor(props) {
+        super(props)
+        this.state = {
+          count: 0
+        }
+        console.log('Life-constructor');
+      }
+      add = () => {
+        const { count } = this.state
+        this.setState({
+          count: count + 1
+        })
+      }
+
+      // 组件将要挂载
+      componentWillMount() {
+        console.log('Life-componentWillMount');
+      }
+
+      // 组件挂载完毕
+      componentDidMount() {
+        console.log('Life-componentDidMount');
+      }
+
+      // 初始渲染，state 更新渲染
+      render() {
+        console.log('Life -render');
+        return (
+          <div>
+            <h1 >我在增加{this.state.count}</h1>
+            <button onClick={this.add}>点我 +1</button>
+          </div>
+        )
+      }
+      // 组件将要卸载
+      componentWillUnmount() {
+
+      }
+    }
+
+
+
+    ReactDOM.render(<Life />, document.getElementById('test'))
+
+
+  </script>
+
+
+
+
+
+</body>
+
+</html>

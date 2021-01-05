@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 容器 -->
+  <div id="test"></div>
+
+  <!-- 引入 react 核心库 -->
+  <script src="../../../React 学习/react.js"></script>
+
+  <!-- 引入 react-dom,用于支持 react 操作 Dom -->
+  <script src="../../../React 学习/reactDom.js"></script>
+  
+  <!-- 引入 babel，用于将 jsx 转为 js -->
+  <script src="../../../React 学习/babel.js"></script>
+
+
+
+  <script type="text/babel">
+
+    class Life extends React.Component {
+
+      state = {
+        opacity: 1
+      }
+      hidden = () => {
+        // 卸载组件
+        ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+      }
+
+      // 组件挂载完毕
+      componentDidMount() {
+        this.timer = setInterval(() => {
+          let { opacity } = this.state
+          opacity -= 0.1
+          if (opacity <= 0) opacity = 1
+          this.setState({
+            opacity
+          })
+        }, 200)
+      }
+
+      // 初始渲染，state 更新渲染
+      render() {
+        return (
+          <div>
+            <h1 style={{ opacity: this.state.opacity }}>React 生命周期</h1>
+            <button onClick={this.hidden}>卸载组件</button>
+          </div>
+        )
+      }
+      // 组件将要卸载
+      componentWillUnmount() {
+        clearInterval(this.timer)
+      }
+    }
+
+    ReactDOM.render(<Life />, document.getElementById('test'))
+
+
+  </script>
+
+
+
+
+
+</body>
+
+</html>
