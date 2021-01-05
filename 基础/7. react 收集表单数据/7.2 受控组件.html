@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 容器 -->
+  <div id="test"></div>
+  <!-- 引入 react 核心库 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/react/17.0.1/umd/react.profiling.min.js"></script>
+  <!-- 引入 react-dom,用于支持 react 操作 Dom -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/17.0.1/umd/react-dom.profiling.min.js"></script>
+  <!-- 引入 babel，用于将 jsx 转为 js -->
+  <script src="../../../React 学习/babel.js"></script>
+
+
+  <script type="text/babel">
+    /*
+      受控组件：页面中所有输入类的 DOM, 状态(state)中的值能够随着用户的输入发生相应的改变(类似与 Vue 中的双向数据绑定)
+              优点: 减少 ref 的使用，提高效率
+    */
+    class Login extends React.Component {
+      state = {
+        username: '',
+        password: '',
+      }
+      handleSubmit = (event) => {
+        event.preventDefault() // 阻止表单提交
+        const { username, password } = this.state
+        console.log(username, 'username');
+        console.log(password, 'password');
+
+      }
+      saveUsername = (event) => {
+        this.setState({
+          username: event.target.value
+        })
+      }
+      savePassword = (event) => {
+        this.setState({
+          password: event.target.value
+        })
+      }
+
+      render() {
+        return (
+          <form onSubmit={this.handleSubmit}>
+            用户名: <input type="text" name="username" onChange={this.saveUsername} />
+            密码: <input type="password" name="password" onChange={this.savePassword} />
+            <button>登录</button>
+          </form>
+        )
+      }
+    }
+
+    ReactDOM.render(<Login />, document.getElementById('test'))
+
+  </script>
+
+
+
+
+
+
+</body>
+
+</html>

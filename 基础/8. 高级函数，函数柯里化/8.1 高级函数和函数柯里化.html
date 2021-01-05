@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 容器 -->
+  <div id="test"></div>
+  <!-- 引入 react 核心库 -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/react/17.0.1/umd/react.profiling.min.js"></script>
+  <!-- 引入 react-dom,用于支持 react 操作 Dom -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/17.0.1/umd/react-dom.profiling.min.js"></script>
+  <!-- 引入 babel，用于将 jsx 转为 js -->
+  <script src="../../../React 学习/babel.js"></script>
+
+
+  <script type="text/babel">
+    /*
+      高阶函数定义(满足以下一种情况就行)：
+        1. 若 A 函数，接受的参数是一个函数，那么 A 就可以称之为高阶函数
+        2. 若 A 函数调用后的返回值依旧是一个函数，那么 A 可以称之为高阶函数
+      函数柯里化：
+        通过函数调用继续返回函数的形式，实现多次接受参数最后进行统一处理的函数编码形式。
+    */
+    class Login extends React.Component {
+      state = {
+        username: '',
+        password: '',
+      }
+      handleSubmit = (event) => {
+        event.preventDefault() // 阻止表单提交
+        const { username, password } = this.state
+        console.log(username, 'username');
+        console.log(password, 'password');
+
+      }
+      saveData = (dataType) => {
+        return (event) => {
+          this.setState({
+            [dataType]: event.target.value
+          })
+        }
+      }
+
+      render() {
+        return (
+          <form onSubmit={this.handleSubmit}>
+            用户名: <input type="text" name="username" onChange={this.saveData('username')} />
+            密码: <input type="password" name="password" onChange={this.saveData('password')} />
+            <button>登录</button>
+          </form>
+        )
+      }
+    }
+
+    ReactDOM.render(<Login />, document.getElementById('test'))
+
+  </script>
+
+
+
+
+
+
+</body>
+
+</html>
