@@ -24,78 +24,78 @@
 
   <script type="text/babel">
 
-    class Life extends React.Component {
-      constructor(props) {
-        super(props)
-        this.state = {
-          count: 0
-        }
-        console.log('Life-constructor');
-      }
-      add = () => {
-        const { count } = this.state
-        this.setState({
-          count: count + 1
-        })
-      }
-      uninstall = () => {
-        ReactDOM.unmountComponentAtNode(document.getElementById('test'))
-      }
-      // forceUpdate() 强制更新
-      force = () => {
-        this.forceUpdate()
-      }
+    // class Life extends React.Component {
+    //   constructor(props) {
+    //     super(props)
+    //     this.state = {
+    //       count: 0
+    //     }
+    //     console.log('Life-constructor');
+    //   }
+    //   add = () => {
+    //     const { count } = this.state
+    //     this.setState({
+    //       count: count + 1
+    //     })
+    //   }
+    //   uninstall = () => {
+    //     ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+    //   }
+    //   // forceUpdate() 强制更新
+    //   force = () => {
+    //     this.forceUpdate()
+    //   }
 
-      // 组件将要挂载
-      componentWillMount() {
-        console.log('Life-componentWillMount');
-      }
-      // 初始渲染，state 更新渲染
-      render() {
-        console.log('Life -render');
-        return (
-          <div>
-            <h1 >我在增加{this.state.count}</h1>
-            <button onClick={this.add}>点我 +1</button>
-            <button onClick={this.uninstall}>卸载组件</button>
-            <button onClick={this.force}>通过 forceUpdate 强制更新组件</button>
-          </div>
-        )
-      }
-      // 组件挂载完毕
-      componentDidMount() {
-        console.log('Life-componentDidMount');
-      }
-
-
-
-      /*当 state 发生更新时，组件的哪些生命周期钩子开始调用？*/
-      // 组件是否更新的阀门(必须返回一个布尔值)
-      shouldComponentUpdate() {
-        console.log('Life---shouldComponentUpdate');
-        return true
-      }
-
-      // 组件将要更新
-      componentWillUpdate() {
-        console.log('Life---componentWillUpdate');
-      }
-
-      // 组件更新完毕
-      componentDidUpdate() {
-        console.log('Life---componentDidUpdate');
-      }
+    //   // 组件将要挂载
+    //   componentWillMount() {
+    //     console.log('Life-componentWillMount');
+    //   }
+    //   // 初始渲染，state 更新渲染
+    //   render() {
+    //     console.log('Life -render');
+    //     return (
+    //       <div>
+    //         <h1 >我在增加{this.state.count}</h1>
+    //         <button onClick={this.add}>点我 +1</button>
+    //         <button onClick={this.uninstall}>卸载组件</button>
+    //         <button onClick={this.force}>通过 forceUpdate 强制更新组件</button>
+    //       </div>
+    //     )
+    //   }
+    //   // 组件挂载完毕
+    //   componentDidMount() {
+    //     console.log('Life-componentDidMount');
+    //   }
 
 
+
+    //   /*当 state 发生更新时，组件的哪些生命周期钩子开始调用？*/
+    //   // 组件是否更新的阀门(必须返回一个布尔值)
+    //   shouldComponentUpdate() {
+    //     console.log('Life---shouldComponentUpdate');
+    //     return true
+    //   }
+
+    //   // 组件将要更新
+    //   componentWillUpdate() {
+    //     console.log('Life---componentWillUpdate');
+    //   }
+
+    //   // 组件更新完毕
+    //   componentDidUpdate() {
+    //     console.log('Life---componentDidUpdate');
+    //   }
 
 
 
 
-      // 组件将要卸载
-      componentWillUnmount() {
-        console.log('componentWillUnmount');
-      }
-    }
+
+
+    //   // 组件将要卸载
+    //   componentWillUnmount() {
+    //     console.log('componentWillUnmount');
+    //   }
+    // }
 
     class Parent extends React.Component {
 
@@ -133,13 +133,6 @@
         )
       }
     }
-
-
-
-
-
-
-
     ReactDOM.render(<Parent />, document.getElementById('test'))
 
 

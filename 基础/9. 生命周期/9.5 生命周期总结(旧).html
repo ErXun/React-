@@ -43,19 +43,6 @@
               一般在这个钩子中做一些收尾的事，例如:关闭定时器，取消订阅信息
     */
 
-    class Parent extends React.Component {
-      render() {
-        return (
-          <div>
-            <h1>Parent</h1>
-            <button onClick={this.transform}>传递给子组件</button>
-            <Child carName={this.state.carName} />
-          </div>
-        )
-      }
-    }
-    ReactDOM.render(<Parent />, document.getElementById('test'))
-
 
   </script>
 

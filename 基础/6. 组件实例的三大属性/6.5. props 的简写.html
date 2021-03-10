@@ -24,8 +24,6 @@
 
   <script type="text/babel">
     class Person extends React.Component {
-
-      
       // 对 Person 组件标签属性的类型，必要性进行限制
       static propTypes = {
         name: PropTypes.string.isRequired,
@@ -51,8 +49,6 @@
         )
       }
     }
-
-
     ReactDOM.render(<Person name="erXun" />, document.getElementById('test'))
 
   </script>

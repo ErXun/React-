@@ -30,7 +30,7 @@
         this.state = {
           count: 0
         }
-        console.log('Life-constructor');
+        console.log('Life-constructor---1');
       }
       add = () => {
         const { count } = this.state
@@ -44,12 +44,12 @@
 
       // 组件将要挂载
       componentWillMount() {
-        console.log('Life-componentWillMount');
+        console.log('Life-componentWillMount---2');
       }
 
       // 初始渲染，state 更新渲染
       render() {
-        console.log('Life -render');
+        console.log('Life -render---3');
         return (
           <div>
             <h1 >我在增加{this.state.count}</h1>
@@ -61,12 +61,12 @@
 
       // 组件挂载完毕
       componentDidMount() {
-        console.log('Life-componentDidMount');
+        console.log('Life-componentDidMount---4');
       }
 
       // 组件将要卸载
       componentWillUnmount() {
-        console.log('componentWillUnmount');
+        console.log('componentWillUnmount---5');
       }
     }
 
